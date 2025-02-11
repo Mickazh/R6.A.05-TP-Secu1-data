@@ -1,6 +1,6 @@
 const {build} = await import( "./app.js")
 
-const app = build({logger: true})
+export const app = build({logger: true})
 
 const start = async () => {
     try {

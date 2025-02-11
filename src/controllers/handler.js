@@ -1,10 +1,11 @@
 export const getAuthHandler = function (req, rep) {
-
-    // Il faut mettre des trucs ici...
-
-    return rep.send("Il faut mettre des trucs avant")
-}
+  const user = req.user;
+  if (user.role === "admin") {
+    return rep.send({ message: "Full access" });
+  }
+  return rep.send([{ message: "Accès limité" }]);
+};
 
 export const getHomeHandler = (req, res) => {
-    return res.send({'hello': 'world'})
-}
+  return res.send({ hello: "world" });
+};
